@@ -2,7 +2,6 @@
   "name": "merci-menu",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://matin-projects.github.io/test-app",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
