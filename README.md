@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Merci Cafe Menu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application for displaying the Merci Cafe menu with a clean and user-friendly interface.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Modern UI**: Built with React, Material UI, and TailwindCSS
+- **Responsive Design**: Mobile-first approach that works on all device sizes
+- **Accessibility**: WCAG 2.1 AA compliant with keyboard navigation support
+- **Dark Mode**: Toggle between light and dark themes
+- **Performance Optimized**: Lazy loading images and optimized components
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend Framework**: React 18
+- **UI Libraries**: Material UI, TailwindCSS
+- **Type Safety**: TypeScript
+- **Testing**: Jest, React Testing Library
+- **Code Quality**: ESLint, Prettier
+- **Accessibility**: ARIA best practices, keyboard navigation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+merci-menu/
+├── public/             # Static assets
+│   ├── images/         # Menu item images
+│   └── index.html      # HTML entry point
+├── src/
+│   ├── components/     # Reusable UI components
+│   │   ├── card/       # Menu item card component
+│   │   ├── darkMode/   # Dark mode toggle component
+│   │   └── tab/        # Tab navigation component
+│   ├── theme/          # Theme configuration
+│   ├── types/          # TypeScript type definitions
+│   ├── __tests__/      # Application tests
+│   ├── App.js          # Main application component
+│   ├── App.css         # Application styles
+│   ├── index.js        # JavaScript entry point
+│   ├── index.css       # Global styles
+│   └── Menu-Items.js   # Menu data
+├── .eslintrc.js        # ESLint configuration
+├── .prettierrc         # Prettier configuration
+├── .clinerules         # Project technical standards
+├── tailwind.config.js  # TailwindCSS configuration
+└── tsconfig.json       # TypeScript configuration
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technical Standards
 
-### `npm run build`
+This project follows the technical standards defined in the `.clinerules` file, which includes:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Code Quality**: React best practices, TypeScript, ES6 modules, consistent naming
+- **UI Styling**: TailwindCSS & Material UI design principles
+- **Formatting**: Prettier, ESLint with specific rules for consistency
+- **Performance**: Lazy loading, optimized images, limited re-renders
+- **Security**: No hardcoded secrets, secure API communication
+- **Accessibility**: WCAG 2.1 AA compliance, ARIA attributes, keyboard navigation
+- **Testing**: Jest, React Testing Library with minimum coverage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v14 or higher)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository
+   ```
+   git clone https://github.com/your-username/merci-menu.git
+   cd merci-menu
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies
+   ```
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the development server
+   ```
+   npm start
+   ```
 
-## Learn More
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Available Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run lint` - Runs ESLint to check code quality
+- `npm run lint:fix` - Fixes ESLint issues automatically
+- `npm run format` - Formats code with Prettier
 
-### Code Splitting
+## Accessibility Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Semantic HTML structure
+- ARIA attributes for interactive elements
+- Keyboard navigation support
+- Skip to content link
+- High contrast mode support
+- Screen reader friendly content
 
-### Analyzing the Bundle Size
+## Performance Optimizations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Lazy loading images
+- Optimized component rendering
+- Code splitting for better load times
+- Efficient state management
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details.

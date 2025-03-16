@@ -1,0 +1,78 @@
+# .clinerules - Technical Standards for Café App Development
+# Maintained by: [Technical Lead]
+# Purpose: To enforce best practices in development, UI consistency, security, performance, and maintainability.
+
+[code_quality]
+description = "Maintain clean, scalable, and maintainable code."
+must_follow = "React best practices, TypeScript (if applicable)"
+enforce_strict_typing = true  # Type safety ensures fewer runtime errors.
+no_any_type = true  # Avoid using 'any' in TypeScript; prefer specific types.
+use_es6_modules = true  # Enforce modern JavaScript syntax.
+consistent_naming = true  # Variables: camelCase, Components: PascalCase, Constants: UPPER_CASE.
+
+[ui_styling]
+description = "Ensure a consistent and modern UI experience using Tailwind and Material UI."
+must_follow = "TailwindCSS & Material UI design principles."
+use_predefined_components = true  # Prioritize built-in Material UI components over custom styles.
+theme_consistency = true  # Stick to a unified theme across all pages.
+dark_mode_support = true  # Ensure dark mode functionality works smoothly.
+responsive_design = true  # Mobile-first approach with proper media queries.
+
+[formatting]
+description = "Maintain a uniform code style to enhance readability and collaboration."
+must_follow = "Prettier, ESLint"
+trailing_commas = "always"
+quote_style = "single"
+indentation = "2_spaces"
+max_line_length = 100
+fix_on_commit = true  # Auto-fix lint issues before merging.
+
+[performance]
+description = "Ensure the application is optimized for speed and efficiency."
+lazy_loading = true  # Implement lazy loading for images and heavy components.
+optimize_images = true  # Use properly sized, compressed images.
+limit_re_renders = true  # Optimize React components to prevent unnecessary re-renders.
+code_splitting = true  # Use dynamic imports to reduce bundle size.
+
+[security]
+description = "Follow security best practices to protect user data and prevent vulnerabilities."
+no_hardcoded_secrets = true  # Never store API keys or credentials in the codebase.
+dependency_scanning = true  # Regularly check for security vulnerabilities in dependencies.
+sanitize_user_input = true  # Prevent XSS, SQL injection, and other attacks.
+use_https_only = true  # Ensure secure API communication.
+
+[accessibility]
+description = "Ensure the app is accessible and inclusive."
+must_follow = "WCAG 2.1 AA"
+aria_best_practices = true
+keyboard_navigation_supported = true
+high_contrast_mode = true  # Ensure visibility in different lighting conditions.
+
+[testing]
+description = "Maintain a high standard of test coverage for stability."
+must_follow = "Jest, React Testing Library"
+unit_tests_required = true
+component_tests_required = true
+e2e_testing_required = true  # End-to-end tests for critical user flows.
+min_coverage = 80  # Maintain a minimum test coverage threshold.
+
+[ci_cd]
+description = "Ensure a reliable and automated development pipeline."
+must_pass = "Build, Lint, Tests"
+branch_protection = true  # Require approvals before merging to main.
+run_pipeline_on_commit = true  # CI/CD should run on every commit.
+
+[dependencies]
+description = "Keep dependencies secure, stable, and up to date."
+must_run = "npm audit, npm outdated"
+use_lockfile = true  # Ensure package-lock.json is committed.
+no_unapproved_packages = true  # Vet third-party libraries before use.
+remove_unused_dependencies = true  # Avoid bloated dependencies.
+
+[git_commits]
+description = "Maintain a clean and structured Git history."
+commit_message_format = "type(scope): description"
+allowed_types = "feat, fix, chore, docs, refactor, test"
+must_reference_issue = true  # Require issue numbers in commits.
+branch_naming_convention = "feature/-, fix/-, chore/-"  # Enforce structured branch names.
+

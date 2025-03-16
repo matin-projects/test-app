@@ -1,40 +1,75 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFireFlameSimple,
-  faSnowflake,
-} from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { Card as MuiCard, CardContent, Typography, Box } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFireFlameSimple, faSnowflake } from '@fortawesome/free-solid-svg-icons';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useTheme } from '../../theme/ThemeProvider';
 
 const Card = ({ image, title, description, price, priceHot, priceIced }) => {
+  const { darkMode } = useTheme();
+
   return (
-    <div className="bg-white text-[#203732] rounded-xl shadow-lg overflow-hidden border-2 border-[#203732] transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl w-full">
+    <MuiCard
+      className={`${darkMode ? 'dark:bg-gray-800 dark:text-white' : 'bg-white text-primary'}
+        border-2 border-primary transform transition-transform duration-300 hover:scale-105
+        hover:shadow-2xl w-full overflow-hidden`}
+      elevation={3}
+      aria-labelledby={`card-title-${title}`}
+    >
       {image && (
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-60 object-cover transition-transform duration-500 hover:scale-110"
-        />
+        <Box className="relative h-60 w-full overflow-hidden">
+          <LazyLoadImage
+            src={image}
+            alt={title}
+            effect="blur"
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            wrapperClassName="w-full h-full"
+          />
+        </Box>
       )}
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-700 mb-4">{description}</p>
-        <div className="flex items-center space-x-4">
-          {price && <p className="text-[#203732] font-bold text-lg">{price}</p>}
+      <CardContent className="p-6">
+        <Typography
+          variant="h5"
+          component="h3"
+          className="font-bold mb-2"
+          id={`card-title-${title}`}
+        >
+          {title}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          className="mb-4"
+          aria-label={`Description for ${title}`}
+        >
+          {description}
+        </Typography>
+        <Box className="flex items-center space-x-4 flex-wrap">
+          {price && (
+            <Typography variant="body1" className="font-bold" aria-label={`Price: ${price}`}>
+              {price}
+            </Typography>
+          )}
           {priceHot && (
-            <div className="flex items-center text-[#203732] font-bold text-lg">
-              <FontAwesomeIcon icon={faFireFlameSimple} className="mr-2" />
-              {priceHot}
-            </div>
+            <Box className="flex items-center font-bold">
+              <FontAwesomeIcon icon={faFireFlameSimple} className="mr-2" aria-hidden="true" />
+              <Typography variant="body1" aria-label={`Hot price: ${priceHot}`}>
+                {priceHot}
+              </Typography>
+            </Box>
           )}
           {priceIced && (
-            <div className="flex items-center text-[#203732] font-bold text-lg">
-              <FontAwesomeIcon icon={faSnowflake} className="mr-2" />
-              {priceIced}
-            </div>
+            <Box className="flex items-center font-bold">
+              <FontAwesomeIcon icon={faSnowflake} className="mr-2" aria-hidden="true" />
+              <Typography variant="body1" aria-label={`Iced price: ${priceIced}`}>
+                {priceIced}
+              </Typography>
+            </Box>
           )}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </CardContent>
+    </MuiCard>
   );
 };
 

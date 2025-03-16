@@ -2,9 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #203732;
+  --primary-light: #4a7d76;
+  --primary-dark: #152521;
+  --secondary: #6c757d;
+  --secondary-light: #868e96;
+  --secondary-dark: #495057;
+}
+
 body {
   margin: 0;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode styles */
+.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  color-scheme: dark;
+}
+
+/* Light mode styles */
+:root:not(.dark) {
+  --bg-color: #ffffff;
+  --text-color: #203732;
+  --card-bg: #ffffff;
+  color-scheme: light;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #000000;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+  }
+  
+  .dark {
+    --primary: #ffffff;
+    --text-color: #ffffff;
+    --bg-color: #000000;
+  }
+  
+  * {
+    border-color: currentColor !important;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Keyboard navigation styles */
+body:not(.using-mouse) *:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Utility classes for dark mode */
+.dark\:bg-background-dark {
+  @apply dark:bg-gray-900;
+}
+
+.bg-background-light {
+  @apply bg-white;
 }
