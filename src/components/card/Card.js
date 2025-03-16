@@ -20,7 +20,7 @@ const Card = ({ image, title, description, price, priceHot, priceIced }) => {
       {image && (
         <Box className="relative h-60 w-full overflow-hidden">
           <LazyLoadImage
-            src={image}
+            src={image && (image.startsWith('http') ? image : `${process.env.PUBLIC_URL}${image}`)}
             alt={title}
             effect="blur"
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
